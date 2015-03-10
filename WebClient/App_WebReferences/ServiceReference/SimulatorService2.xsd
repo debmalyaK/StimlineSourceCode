@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/ServiceCommon" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ServiceCommon" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://sensedev1:8500/SimulatorService?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System" />
+  <xs:import schemaLocation="http://sensedev1:8500/SimulatorService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://sensedev1:8500/SimulatorService?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Stimline.Data.RunDomain.Domain" />
+  <xs:complexType name="GeneralSimulationConfiguration">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MaxParallelTask" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GeneralSimulationConfiguration" nillable="true" type="tns:GeneralSimulationConfiguration" />
+  <xs:complexType name="SimulatorException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ExceptionMessage" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="InnerException" nillable="true" type="q1:Exception" />
+      <xs:element minOccurs="0" name="StackTrace" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SimulatorException" nillable="true" type="tns:SimulatorException" />
+  <xs:complexType name="ArrayOfRunPlanInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RunPlanInfo" nillable="true" type="tns:RunPlanInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRunPlanInfo" nillable="true" type="tns:ArrayOfRunPlanInfo" />
+  <xs:complexType name="RunPlanInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CustomerId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EstimatedDuration" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsPublished" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="ProjectName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PublishedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RunTask" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UnitId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WellName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WellboreId" nillable="true" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RunPlanInfo" nillable="true" type="tns:RunPlanInfo" />
+  <xs:complexType name="ArrayOfRunInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RunInfo" nillable="true" type="tns:RunInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRunInfo" nillable="true" type="tns:ArrayOfRunInfo" />
+  <xs:complexType name="RunInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="RunNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RunPlanId" type="ser:guid" />
+      <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Stimline.Data.RunDomain.Domain" minOccurs="0" name="Status" type="q2:RunStatusEnum" />
+      <xs:element minOccurs="0" name="TimeZone" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Stimline.Data.RunDomain.Domain" minOccurs="0" name="Toolstring" nillable="true" type="q3:Toolstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RunInfo" nillable="true" type="tns:RunInfo" />
+</xs:schema>

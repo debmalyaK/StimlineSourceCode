@@ -1,0 +1,5 @@
+D:\stimline\StimlineSimulatorService\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+D:\stimline\StimlineSimulatorService\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+D:\stimline\StimlineSimulatorService\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+D:\stimline\StimlineSimulatorService\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+D:\stimline\StimlineSimulatorService\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb

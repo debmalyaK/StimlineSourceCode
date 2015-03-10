@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Stimline.Data.RunDomain.Domain" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Stimline.Data.RunDomain.Domain" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://sensedev1:8500/SimulatorService?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Stimline.Data.Context" />
+  <xs:import schemaLocation="http://sensedev1:8500/SimulatorService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="RunPlan">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Stimline.Data.Context" minOccurs="0" name="Audit" nillable="true" type="q1:AuditFields" />
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="DepthCorrection" nillable="true" type="tns:DepthCorrection" />
+      <xs:element minOccurs="0" name="EstimatedDuration" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="InventoryRequirements" nillable="true" type="tns:ArrayOfInventoryRequirement" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="PublishedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RunPlanAutoSpeeds" nillable="true" type="tns:ArrayOfRunPlanAutoSpeed" />
+      <xs:element minOccurs="0" name="RunPlanCategories" nillable="true" type="tns:ArrayOfRunPlanCategory" />
+      <xs:element minOccurs="0" name="RunPlanDepthComments" nillable="true" type="tns:ArrayOfRunPlanDepthComment" />
+      <xs:element minOccurs="0" name="RunPlanToolstring" nillable="true" type="tns:RunPlanToolstring" />
+      <xs:element minOccurs="0" name="RunPlanWellGuideLimits" nillable="true" type="tns:ArrayOfRunPlanWellGuideLimit" />
+      <xs:element minOccurs="0" name="RunTask" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SharedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UnitId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WellboreId" nillable="true" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RunPlan" nillable="true" type="tns:RunPlan" />
+  <xs:complexType name="DepthCorrection">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BottomWellTemperature" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="CableHeadTension" nillable="true" type="tns:CableHeadTensionEnum" />
+      <xs:element minOccurs="0" name="CableStretchCoefficient" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="CableThermalExpansion" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="ElasticStretchCorrectionOn" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FixedCableHeadTension" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="MeasuredWellHeadPressure" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="PceLineSupportCorrectionOn" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TopWellTemperature" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="WellTemperatureCorrectionOn" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DepthCorrection" nillable="true" type="tns:DepthCorrection" />
+  <xs:simpleType name="CableHeadTensionEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Fixed" />
+      <xs:enumeration value="Measured" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CableHeadTensionEnum" nillable="true" type="tns:CableHeadTensionEnum" />
+  <xs:complexType name="ArrayOfInventoryRequirement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InventoryRequirement" nillable="true" type="tns:InventoryRequirement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInventoryRequirement" nillable="true" type="tns:ArrayOfInventoryRequirement" />
+  <xs:complexType name="InventoryRequirement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="InventoryType" type="tns:InventoryType" />
+      <xs:element minOccurs="0" name="PropertyDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TargetValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UnitOfMeasurement" type="tns:UnitOfMeasurementEnum" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InventoryRequirement" nillable="true" type="tns:InventoryRequirement" />
+  <xs:simpleType name="InventoryType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="General" />
+      <xs:enumeration value="Cable" />
+      <xs:enumeration value="Drum" />
+      <xs:enumeration value="OperationCabin" />
+      <xs:enumeration value="XOS" />
+      <xs:enumeration value="WinchSkid" />
+      <xs:enumeration value="MeasuringHead" />
+      <xs:enumeration value="PowerUnit" />
+      <xs:enumeration value="DrumFrame" />
+      <xs:enumeration value="DriveUnit" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="InventoryType" nillable="true" type="tns:InventoryType" />
+  <xs:simpleType name="UnitOfMeasurementEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Meter" />
+      <xs:enumeration value="Feet" />
+      <xs:enumeration value="MeterPerMin" />
+      <xs:enumeration value="FeetPerMin" />
+      <xs:enumeration value="kg" />
+      <xs:enumeration value="Pound" />
+      <xs:enumeration value="Bar" />
+      <xs:enumeration value="Psi" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="UnitOfMeasurementEnum" nillable="true" type="tns:UnitOfMeasurementEnum" />
+  <xs:complexType name="ArrayOfRunPlanAutoSpeed">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RunPlanAutoSpeed" nillable="true" type="tns:RunPlanAutoSpeed" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRunPlanAutoSpeed" nillable="true" type="tns:ArrayOfRunPlanAutoSpeed" />
+  <xs:complexType name="RunPlanAutoSpeed">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ControlFunctionCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Depth" type="xs:double" />
+      <xs:element minOccurs="0" name="Direction" type="tns:DirectionEnum" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Speed" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RunPlanAutoSpeed" nillable="true" type="tns:RunPlanAutoSpeed" />
+  <xs:simpleType name="DirectionEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Inhole" />
+      <xs:enumeration value="Outhole" />
+      <xs:enumeration value="InAndOuthole" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DirectionEnum" nillable="true" type="tns:DirectionEnum" />
+  <xs:complexType name="ArrayOfRunPlanCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RunPlanCategory" nillable="true" type="tns:RunPlanCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRunPlanCategory" nillable="true" type="tns:ArrayOfRunPlanCategory" />
+  <xs:complexType name="RunPlanCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CategoryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CategoryType" nillable="true" type="tns:RunCategoryType" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RunPlanCategory" nillable="true" type="tns:RunPlanCategory" />
+  <xs:complexType name="RunCategoryType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RunCategoryType" nillable="true" type="tns:RunCategoryType" />
+  <xs:complexType name="ArrayOfRunPlanDepthComment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RunPlanDepthComment" nillable="true" type="tns:RunPlanDepthComment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRunPlanDepthComment" nillable="true" type="tns:ArrayOfRunPlanDepthComment" />
+  <xs:complexType name="RunPlanDepthComment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CategoryCode" nillable="true" type="tns:DepthCommentCategoryType" />
+      <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Depth" type="xs:double" />
+      <xs:element minOccurs="0" name="DisplayInDistanceList" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="OperatorComment" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RunPlanDepthComment" nillable="true" type="tns:RunPlanDepthComment" />
+  <xs:complexType name="DepthCommentCategoryType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DepthCommentCategoryType" nillable="true" type="tns:DepthCommentCategoryType" />
+  <xs:complexType name="RunPlanToolstring">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DistanceToCcl" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LengthReference" nillable="true" type="tns:ToolstringLengthReferenceEnum" />
+      <xs:element minOccurs="0" name="RunPlanToolstringElements" nillable="true" type="tns:ArrayOfRunPlanToolstringElement" />
+      <xs:element minOccurs="0" name="ToolstringDisplacement" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="ToolstringLength" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="ToolstringWeight" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="UseSimpleToolstring" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RunPlanToolstring" nillable="true" type="tns:RunPlanToolstring" />
+  <xs:simpleType name="ToolstringLengthReferenceEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Top" />
+      <xs:enumeration value="Bottom" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ToolstringLengthReferenceEnum" nillable="true" type="tns:ToolstringLengthReferenceEnum" />
+  <xs:complexType name="ArrayOfRunPlanToolstringElement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RunPlanToolstringElement" nillable="true" type="tns:RunPlanToolstringElement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRunPlanToolstringElement" nillable="true" type="tns:ArrayOfRunPlanToolstringElement" />
+  <xs:complexType name="RunPlanToolstringElement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Position" type="xs:int" />
+      <xs:element minOccurs="0" name="ToolId" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RunPlanToolstringElement" nillable="true" type="tns:RunPlanToolstringElement" />
+  <xs:complexType name="ArrayOfRunPlanWellGuideLimit">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RunPlanWellGuideLimit" nillable="true" type="tns:RunPlanWellGuideLimit" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRunPlanWellGuideLimit" nillable="true" type="tns:ArrayOfRunPlanWellGuideLimit" />
+  <xs:complexType name="RunPlanWellGuideLimit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActiveLimit" type="tns:ActiveLimitEnum" />
+      <xs:element minOccurs="0" name="Depth" type="xs:double" />
+      <xs:element minOccurs="0" name="Direction" type="tns:DirectionEnum" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="RedLimit" type="xs:double" />
+      <xs:element minOccurs="0" name="Sensor" type="tns:SensorEnum" />
+      <xs:element minOccurs="0" name="WarningLimit" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RunPlanWellGuideLimit" nillable="true" type="tns:RunPlanWellGuideLimit" />
+  <xs:simpleType name="ActiveLimitEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Static" />
+      <xs:enumeration value="Wellguide" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ActiveLimitEnum" nillable="true" type="tns:ActiveLimitEnum" />
+  <xs:simpleType name="SensorEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Speed" />
+      <xs:enumeration value="Tension" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SensorEnum" nillable="true" type="tns:SensorEnum" />
+  <xs:simpleType name="RunStatusEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Active" />
+      <xs:enumeration value="Success" />
+      <xs:enumeration value="Missrun" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RunStatusEnum" nillable="true" type="tns:RunStatusEnum" />
+  <xs:complexType name="Toolstring">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DistanceToCcl" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LengthReference" type="tns:ToolstringLengthReferenceEnum" />
+      <xs:element minOccurs="0" name="ToolstringDisplacement" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="ToolstringElements" nillable="true" type="tns:ArrayOfToolstringElement" />
+      <xs:element minOccurs="0" name="ToolstringLength" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="ToolstringWeight" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="UseSimpleToolstring" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Toolstring" nillable="true" type="tns:Toolstring" />
+  <xs:complexType name="ArrayOfToolstringElement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ToolstringElement" nillable="true" type="tns:ToolstringElement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfToolstringElement" nillable="true" type="tns:ArrayOfToolstringElement" />
+  <xs:complexType name="ToolstringElement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Position" type="xs:int" />
+      <xs:element minOccurs="0" name="ToolId" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ToolstringElement" nillable="true" type="tns:ToolstringElement" />
+  <xs:complexType name="ArrayOfRun">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Run" nillable="true" type="tns:Run" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRun" nillable="true" type="tns:ArrayOfRun" />
+  <xs:complexType name="Run">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Stimline.Data.Context" minOccurs="0" name="Audit" nillable="true" type="q2:AuditFields" />
+      <xs:element minOccurs="0" name="AutoSpeeds" nillable="true" type="tns:ArrayOfAutoSpeed" />
+      <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerId" type="ser:guid" />
+      <xs:element minOccurs="0" name="DepthComments" nillable="true" type="tns:ArrayOfDepthComment" />
+      <xs:element minOccurs="0" name="DepthCorrection" nillable="true" type="tns:DepthCorrection" />
+      <xs:element minOccurs="0" name="EndTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="ProjectId" type="ser:guid" />
+      <xs:element minOccurs="0" name="RunCategories" nillable="true" type="tns:ArrayOfRunCategory" />
+      <xs:element minOccurs="0" name="RunNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RunOperators" nillable="true" type="tns:ArrayOfRunOperators" />
+      <xs:element minOccurs="0" name="RunPlanId" type="ser:guid" />
+      <xs:element minOccurs="0" name="RunTask" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RunUnitConfigurations" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Status" type="tns:RunStatusEnum" />
+      <xs:element minOccurs="0" name="TimeZone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Toolstring" nillable="true" type="tns:Toolstring" />
+      <xs:element minOccurs="0" name="UnitId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UtcOffsetMinutes" type="xs:int" />
+      <xs:element minOccurs="0" name="WellGuideLimits" nillable="true" type="tns:ArrayOfWellGuideLimit" />
+      <xs:element minOccurs="0" name="WellboreId" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Run" nillable="true" type="tns:Run" />
+  <xs:complexType name="ArrayOfAutoSpeed">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AutoSpeed" nillable="true" type="tns:AutoSpeed" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAutoSpeed" nillable="true" type="tns:ArrayOfAutoSpeed" />
+  <xs:complexType name="AutoSpeed">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ControlFunctionCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Depth" type="xs:double" />
+      <xs:element minOccurs="0" name="Direction" type="tns:DirectionEnum" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Speed" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AutoSpeed" nillable="true" type="tns:AutoSpeed" />
+  <xs:complexType name="ArrayOfDepthComment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DepthComment" nillable="true" type="tns:DepthComment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDepthComment" nillable="true" type="tns:ArrayOfDepthComment" />
+  <xs:complexType name="DepthComment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CategoryCode" nillable="true" type="tns:DepthCommentCategoryType" />
+      <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Depth" type="xs:double" />
+      <xs:element minOccurs="0" name="DisplayInDistanceList" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="OperatorComment" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DepthComment" nillable="true" type="tns:DepthComment" />
+  <xs:complexType name="ArrayOfRunCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RunCategory" nillable="true" type="tns:RunCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRunCategory" nillable="true" type="tns:ArrayOfRunCategory" />
+  <xs:complexType name="RunCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CategoryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CategoryType" nillable="true" type="tns:RunCategoryType" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RunCategory" nillable="true" type="tns:RunCategory" />
+  <xs:complexType name="ArrayOfRunOperators">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RunOperators" nillable="true" type="tns:RunOperators" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRunOperators" nillable="true" type="tns:ArrayOfRunOperators" />
+  <xs:complexType name="RunOperators">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Time" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RunOperators" nillable="true" type="tns:RunOperators" />
+  <xs:complexType name="ArrayOfWellGuideLimit">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WellGuideLimit" nillable="true" type="tns:WellGuideLimit" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWellGuideLimit" nillable="true" type="tns:ArrayOfWellGuideLimit" />
+  <xs:complexType name="WellGuideLimit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActiveLimit" type="tns:ActiveLimitEnum" />
+      <xs:element minOccurs="0" name="Depth" type="xs:double" />
+      <xs:element minOccurs="0" name="Direction" type="tns:DirectionEnum" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="RedLimit" type="xs:double" />
+      <xs:element minOccurs="0" name="Sensor" type="tns:SensorEnum" />
+      <xs:element minOccurs="0" name="WarningLimit" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WellGuideLimit" nillable="true" type="tns:WellGuideLimit" />
+</xs:schema>

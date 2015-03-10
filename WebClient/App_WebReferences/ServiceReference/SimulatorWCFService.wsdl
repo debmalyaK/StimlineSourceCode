@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SimulatorWCFService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://sensedev1:8500/SimulatorService?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://sensedev1:8500/SimulatorService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ServiceCommon" />
+      <xsd:import schemaLocation="http://sensedev1:8500/SimulatorService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://sensedev1:8500/SimulatorService?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://sensedev1:8500/SimulatorService?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Stimline.Data.RunDomain.Domain" />
+      <xsd:import schemaLocation="http://sensedev1:8500/SimulatorService?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Stimline.Data.Context" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISimulatorWCFService_UpdateSimulationConfiguration_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSimulationConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="ISimulatorWCFService_UpdateSimulationConfiguration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSimulationConfigurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISimulatorWCFService_UpdateSimulationConfiguration_SimulatorExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/ServiceCommon" name="detail" element="q1:SimulatorException" />
+  </wsdl:message>
+  <wsdl:message name="ISimulatorWCFService_GetAllRunPlans_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRunPlans" />
+  </wsdl:message>
+  <wsdl:message name="ISimulatorWCFService_GetAllRunPlans_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRunPlansResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISimulatorWCFService_GetAllRunPlans_SimulatorExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/ServiceCommon" name="detail" element="q2:SimulatorException" />
+  </wsdl:message>
+  <wsdl:message name="ISimulatorWCFService_AddRunPlan_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRunPlan" />
+  </wsdl:message>
+  <wsdl:message name="ISimulatorWCFService_AddRunPlan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRunPlanResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISimulatorWCFService_AddRunPlan_SimulatorExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/ServiceCommon" name="detail" element="q3:SimulatorException" />
+  </wsdl:message>
+  <wsdl:message name="ISimulatorWCFService_EditRunPlan_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditRunPlan" />
+  </wsdl:message>
+  <wsdl:message name="ISimulatorWCFService_EditRunPlan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditRunPlanResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISimulatorWCFService_EditRunPlan_SimulatorExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/ServiceCommon" name="detail" element="q4:SimulatorException" />
+  </wsdl:message>
+  <wsdl:message name="ISimulatorWCFService_DeleteRunPlan_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRunPlan" />
+  </wsdl:message>
+  <wsdl:message name="ISimulatorWCFService_DeleteRunPlan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRunPlanResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISimulatorWCFService_DeleteRunPlan_SimulatorExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/ServiceCommon" name="detail" element="q5:SimulatorException" />
+  </wsdl:message>
+  <wsdl:message name="ISimulatorWCFService_GetAllRuns_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRuns" />
+  </wsdl:message>
+  <wsdl:message name="ISimulatorWCFService_GetAllRuns_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRunsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISimulatorWCFService_GetAllRuns_SimulatorExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/ServiceCommon" name="detail" element="q6:SimulatorException" />
+  </wsdl:message>
+  <wsdl:message name="ISimulatorWCFService_GetAllRunsWithSpecifiedRunPlanId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRunsWithSpecifiedRunPlanId" />
+  </wsdl:message>
+  <wsdl:message name="ISimulatorWCFService_GetAllRunsWithSpecifiedRunPlanId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRunsWithSpecifiedRunPlanIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISimulatorWCFService_GetAllRunsWithSpecifiedRunPlanId_SimulatorExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/ServiceCommon" name="detail" element="q7:SimulatorException" />
+  </wsdl:message>
+  <wsdl:message name="ISimulatorWCFService_GetAllRunsFilteredByStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRunsFilteredByStatus" />
+  </wsdl:message>
+  <wsdl:message name="ISimulatorWCFService_GetAllRunsFilteredByStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRunsFilteredByStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISimulatorWCFService_GetAllRunsFilteredByStatus_SimulatorExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/ServiceCommon" name="detail" element="q8:SimulatorException" />
+  </wsdl:message>
+  <wsdl:portType name="ISimulatorWCFService">
+    <wsdl:operation name="UpdateSimulationConfiguration">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISimulatorWCFService/UpdateSimulationConfiguration" message="tns:ISimulatorWCFService_UpdateSimulationConfiguration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISimulatorWCFService/UpdateSimulationConfigurationResponse" message="tns:ISimulatorWCFService_UpdateSimulationConfiguration_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISimulatorWCFService/UpdateSimulationConfigurationSimulatorExceptionFault" name="SimulatorExceptionFault" message="tns:ISimulatorWCFService_UpdateSimulationConfiguration_SimulatorExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRunPlans">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISimulatorWCFService/GetAllRunPlans" message="tns:ISimulatorWCFService_GetAllRunPlans_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISimulatorWCFService/GetAllRunPlansResponse" message="tns:ISimulatorWCFService_GetAllRunPlans_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISimulatorWCFService/GetAllRunPlansSimulatorExceptionFault" name="SimulatorExceptionFault" message="tns:ISimulatorWCFService_GetAllRunPlans_SimulatorExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRunPlan">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISimulatorWCFService/AddRunPlan" message="tns:ISimulatorWCFService_AddRunPlan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISimulatorWCFService/AddRunPlanResponse" message="tns:ISimulatorWCFService_AddRunPlan_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISimulatorWCFService/AddRunPlanSimulatorExceptionFault" name="SimulatorExceptionFault" message="tns:ISimulatorWCFService_AddRunPlan_SimulatorExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditRunPlan">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISimulatorWCFService/EditRunPlan" message="tns:ISimulatorWCFService_EditRunPlan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISimulatorWCFService/EditRunPlanResponse" message="tns:ISimulatorWCFService_EditRunPlan_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISimulatorWCFService/EditRunPlanSimulatorExceptionFault" name="SimulatorExceptionFault" message="tns:ISimulatorWCFService_EditRunPlan_SimulatorExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRunPlan">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISimulatorWCFService/DeleteRunPlan" message="tns:ISimulatorWCFService_DeleteRunPlan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISimulatorWCFService/DeleteRunPlanResponse" message="tns:ISimulatorWCFService_DeleteRunPlan_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISimulatorWCFService/DeleteRunPlanSimulatorExceptionFault" name="SimulatorExceptionFault" message="tns:ISimulatorWCFService_DeleteRunPlan_SimulatorExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRuns">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISimulatorWCFService/GetAllRuns" message="tns:ISimulatorWCFService_GetAllRuns_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISimulatorWCFService/GetAllRunsResponse" message="tns:ISimulatorWCFService_GetAllRuns_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISimulatorWCFService/GetAllRunsSimulatorExceptionFault" name="SimulatorExceptionFault" message="tns:ISimulatorWCFService_GetAllRuns_SimulatorExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRunsWithSpecifiedRunPlanId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISimulatorWCFService/GetAllRunsWithSpecifiedRunPlanId" message="tns:ISimulatorWCFService_GetAllRunsWithSpecifiedRunPlanId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISimulatorWCFService/GetAllRunsWithSpecifiedRunPlanIdResponse" message="tns:ISimulatorWCFService_GetAllRunsWithSpecifiedRunPlanId_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISimulatorWCFService/GetAllRunsWithSpecifiedRunPlanIdSimulatorExceptionFault" name="SimulatorExceptionFault" message="tns:ISimulatorWCFService_GetAllRunsWithSpecifiedRunPlanId_SimulatorExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRunsFilteredByStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISimulatorWCFService/GetAllRunsFilteredByStatus" message="tns:ISimulatorWCFService_GetAllRunsFilteredByStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISimulatorWCFService/GetAllRunsFilteredByStatusResponse" message="tns:ISimulatorWCFService_GetAllRunsFilteredByStatus_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISimulatorWCFService/GetAllRunsFilteredByStatusSimulatorExceptionFault" name="SimulatorExceptionFault" message="tns:ISimulatorWCFService_GetAllRunsFilteredByStatus_SimulatorExceptionFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISimulatorWCFService" type="tns:ISimulatorWCFService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UpdateSimulationConfiguration">
+      <soap:operation soapAction="http://tempuri.org/ISimulatorWCFService/UpdateSimulationConfiguration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SimulatorExceptionFault">
+        <soap:fault use="literal" name="SimulatorExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRunPlans">
+      <soap:operation soapAction="http://tempuri.org/ISimulatorWCFService/GetAllRunPlans" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SimulatorExceptionFault">
+        <soap:fault use="literal" name="SimulatorExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddRunPlan">
+      <soap:operation soapAction="http://tempuri.org/ISimulatorWCFService/AddRunPlan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SimulatorExceptionFault">
+        <soap:fault use="literal" name="SimulatorExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="EditRunPlan">
+      <soap:operation soapAction="http://tempuri.org/ISimulatorWCFService/EditRunPlan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SimulatorExceptionFault">
+        <soap:fault use="literal" name="SimulatorExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRunPlan">
+      <soap:operation soapAction="http://tempuri.org/ISimulatorWCFService/DeleteRunPlan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SimulatorExceptionFault">
+        <soap:fault use="literal" name="SimulatorExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRuns">
+      <soap:operation soapAction="http://tempuri.org/ISimulatorWCFService/GetAllRuns" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SimulatorExceptionFault">
+        <soap:fault use="literal" name="SimulatorExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRunsWithSpecifiedRunPlanId">
+      <soap:operation soapAction="http://tempuri.org/ISimulatorWCFService/GetAllRunsWithSpecifiedRunPlanId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SimulatorExceptionFault">
+        <soap:fault use="literal" name="SimulatorExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRunsFilteredByStatus">
+      <soap:operation soapAction="http://tempuri.org/ISimulatorWCFService/GetAllRunsFilteredByStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SimulatorExceptionFault">
+        <soap:fault use="literal" name="SimulatorExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SimulatorWCFService">
+    <wsdl:port name="BasicHttpBinding_ISimulatorWCFService" binding="tns:BasicHttpBinding_ISimulatorWCFService">
+      <soap:address location="http://sensedev1:8500/SimulatorService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

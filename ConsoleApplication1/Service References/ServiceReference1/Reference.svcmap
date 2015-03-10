@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0183b981-b181-499d-a302-5d9ee9bf941a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://abhijitdesktop:8500/SimulatorService" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SimulatorWCFService.wsdl" MetadataType="Wsdl" ID="7bfa67a1-1773-4d2f-9b79-9a66633107ff" SourceId="1" SourceUrl="http://abhijitdesktop:8500/SimulatorService?wsdl" />
+    <MetadataFile FileName="SimulatorService.xsd" MetadataType="Schema" ID="c0ea028e-ac37-4d04-bce3-250b0fca67c6" SourceId="1" SourceUrl="http://abhijitdesktop:8500/SimulatorService?xsd=xsd1" />
+    <MetadataFile FileName="SimulatorService.disco" MetadataType="Disco" ID="75ad1796-0a2c-45b3-ab0b-efe611919dde" SourceId="1" SourceUrl="http://abhijitdesktop:8500/SimulatorService?disco" />
+    <MetadataFile FileName="SimulatorService1.xsd" MetadataType="Schema" ID="9e39b7c9-4089-4c97-91e1-eceb6144f00b" SourceId="1" SourceUrl="http://abhijitdesktop:8500/SimulatorService?xsd=xsd5" />
+    <MetadataFile FileName="SimulatorService2.xsd" MetadataType="Schema" ID="5efc0652-0e29-41ca-8bf9-a840214ccdd8" SourceId="1" SourceUrl="http://abhijitdesktop:8500/SimulatorService?xsd=xsd2" />
+    <MetadataFile FileName="SimulatorService3.xsd" MetadataType="Schema" ID="a36e3560-1e9b-4d77-aab8-583aba9953f2" SourceId="1" SourceUrl="http://abhijitdesktop:8500/SimulatorService?xsd=xsd0" />
+    <MetadataFile FileName="SimulatorService4.xsd" MetadataType="Schema" ID="42a1b60e-9957-484e-8d16-ac79347c3ee7" SourceId="1" SourceUrl="http://abhijitdesktop:8500/SimulatorService?xsd=xsd4" />
+    <MetadataFile FileName="SimulatorService5.xsd" MetadataType="Schema" ID="29c2bcc1-bea2-4d8a-8968-1607f1da0883" SourceId="1" SourceUrl="http://abhijitdesktop:8500/SimulatorService?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

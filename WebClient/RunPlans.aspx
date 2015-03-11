@@ -264,7 +264,7 @@
                         <br />
                         <div style="text-align: center;">
                             <div style="display: inline-block;">
-                                &nbsp;&nbsp;
+                                &nbsp;
                                 <asp:Label ID="lblRunCount" runat="server"></asp:Label>
                             </div>
                         </div>
